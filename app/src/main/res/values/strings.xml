@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">github-search-repository</string>
+
+    <string name="view_search_result">検索結果画面</string>
+
+    <string name="search_hint">検索するリポジトリ名を入力してください</string>
+    <string name="search_label">検索ワード：</string>
+
+    <string name="error_message_500">サーバーにアクセスできません。</string>
+    <string name="error_offline">ネットワークに接続できません。</string>
+    <string name="error_unexpected">予期せぬエラーが発生しました。</string>
+    <string name="error_invalid_query">検索ワードが正しくありません。</string>
+    <string name="retry">再実行</string>
 </resources>
