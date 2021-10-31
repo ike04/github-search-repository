@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.codelab.github_search_repository.R
-import com.google.codelab.github_search_repository.viewmodel.SearchResultViewModel
 import com.google.codelab.github_search_repository.databinding.FragmentSearchResultBinding
+import com.google.codelab.github_search_repository.viewmodel.SearchResultViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint
@@ -51,6 +51,7 @@ class SearchResultFragment : Fragment() {
             override fun onQueryTextChange(newText: String): Boolean {
                 return false
             }
+
             override fun onQueryTextSubmit(query: String): Boolean {
                 viewModel.keyword.set(query)
                 binding.searchKeyword.text = query
@@ -84,7 +85,7 @@ class SearchResultFragment : Fragment() {
             .subscribeBy {
                 Snackbar.make(view, it.message, Snackbar.LENGTH_LONG)
                     .setAction(R.string.retry) {
-                        viewModel.keyword.get()?.let {viewModel.fetchRepository(it) }
+                        viewModel.keyword.get()?.let { viewModel.fetchRepository(it) }
                     }.show()
             }.addTo(disposable)
     }
