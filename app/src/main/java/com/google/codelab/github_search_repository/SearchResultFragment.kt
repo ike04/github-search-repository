@@ -10,6 +10,12 @@ import com.google.codelab.github_search_repository.databinding.FragmentSearchRes
 class SearchResultFragment : Fragment() {
     private lateinit var binding: FragmentSearchResultBinding
 
+    companion object {
+        fun newInstance(): SearchResultFragment {
+            return SearchResultFragment()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
