@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.google.codelab.github_search_repository.databinding.FragmentSearchResultBinding
 import com.google.codelab.github_search_repository.view.RepositoryItemsFactory
 import com.xwray.groupie.GroupAdapter
@@ -50,6 +51,7 @@ class SearchResultFragment : Fragment() {
                 return false
             }
             override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.keyword.set(query)
                 viewModel.fetchRepository(query)
                 return false
             }
@@ -73,6 +75,16 @@ class SearchResultFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { groupAdapter.update(it.map { RepositoryItemsFactory(it) }) }
             .addTo(disposable)
+
+        viewModel.error
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy {
+                Snackbar.make(view, it.message, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(R.string.retry) {
+                        viewModel.keyword.get()?.let {viewModel.fetchRepository(it) }
+                    }.show()
+            }.addTo(disposable)
     }
 
     override fun onDestroy() {

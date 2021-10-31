@@ -3,4 +3,9 @@
 
     <string name="search_hint">検索するリポジトリ名を入力してください</string>
     <string name="search_label">検索ワード：</string>
+
+    <string name="error_message_500">サーバーにアクセスできません。</string>
+    <string name="error_offline">ネットワークに接続できません。</string>
+    <string name="error_unexpected">予期せぬエラーが発生しました。</string>
+    <string name="retry">再実行</string>
 </resources>
