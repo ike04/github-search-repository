@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.google.codelab.github_search_repository.SearchResultViewModel" />
@@ -18,31 +19,32 @@
             android:id="@+id/searchView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:queryHint="@string/search_hint"
             android:iconifiedByDefault="false"
+            android:queryHint="@string/search_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/search_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="@string/search_label"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/search_keyword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            tools:text="android"
+            android:layout_marginEnd="8dp"
+            android:text="@{viewModel.keyword.toString()}"
             app:layout_constraintBottom_toTopOf="@id/recycler_view"
-            app:layout_constraintTop_toBottomOf="@id/searchView"
             app:layout_constraintEnd_toEndOf="parent"
-             />
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            tools:text="android" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -51,7 +53,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/search_label" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

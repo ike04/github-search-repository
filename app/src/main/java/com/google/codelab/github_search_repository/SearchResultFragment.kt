@@ -52,6 +52,7 @@ class SearchResultFragment : Fragment() {
             }
             override fun onQueryTextSubmit(query: String): Boolean {
                 viewModel.keyword.set(query)
+                binding.searchKeyword.text = query
                 viewModel.fetchRepository(query)
                 return false
             }

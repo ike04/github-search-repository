@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">github-search-repository</string>
 
+    <string name="view_search_result">検索結果画面</string>
+
     <string name="search_hint">検索するリポジトリ名を入力してください</string>
     <string name="search_label">検索ワード：</string>
 

@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        title = this.getString(R.string.view_search_result)
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, SearchResultFragment.newInstance())
             .commit()
