@@ -1,5 +1,7 @@
 package com.google.codelab.github_search_repository
 
+import android.database.Observable
+import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.google.codelab.github_search_repository.model.SearchRepositoryBusinessModel
 import dagger.hilt.android.lifecycle.HiltViewModel
