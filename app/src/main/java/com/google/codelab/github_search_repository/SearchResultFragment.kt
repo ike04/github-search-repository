@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.codelab.github_search_repository.databinding.FragmentSearchResultBinding
 import com.google.codelab.github_search_repository.view.RepositoryItemsFactory
 import com.xwray.groupie.GroupAdapter
@@ -45,8 +46,13 @@ class SearchResultFragment : Fragment() {
 
         binding.recyclerView.apply {
             adapter = groupAdapter
-            layoutManager =
-                GridLayoutManager(requireContext(), 1, GridLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    LinearLayoutManager(requireContext()).orientation
+                )
+            )
         }
 
         viewModel.repositoryList
