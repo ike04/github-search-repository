@@ -16,8 +16,8 @@ class SearchResultViewModel @Inject constructor(
     val repositoryList: PublishSubject<List<SearchRepositoryBusinessModel>> = PublishSubject.create()
     private val disposable = CompositeDisposable()
 
-    fun fetchRepository() {
-        repository.fetchRepository()
+    fun fetchRepository(query: String) {
+        repository.fetchRepository(query)
             .subscribeBy { repositoryList.onNext(it) }
             .addTo(disposable)
     }

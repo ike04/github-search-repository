@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">github-search-repository</string>
+
+    <string name="search_hint">検索するリポジトリ名を入力してください</string>
 </resources>

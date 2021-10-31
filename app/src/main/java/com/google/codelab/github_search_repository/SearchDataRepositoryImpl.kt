@@ -8,7 +8,7 @@ import javax.inject.Inject
 class SearchDataRepositoryImpl @Inject constructor(
     private val remote: RemoteData
 ) : SearchDataRepository {
-    override fun fetchRepository(): Single<List<SearchRepositoryBusinessModel>> {
-        return remote.fetchRepository().map { Mapper.transform(it) }
+    override fun fetchRepository(query: String): Single<List<SearchRepositoryBusinessModel>> {
+        return remote.fetchRepository(query).map { Mapper.transform(it) }
     }
 }

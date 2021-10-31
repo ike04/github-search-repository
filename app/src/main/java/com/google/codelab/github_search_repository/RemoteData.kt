@@ -9,7 +9,7 @@ import javax.inject.Inject
 class RemoteData @Inject constructor(
     private val api: ApiRequest
 ) {
-    fun fetchRepository(): Single<Response<SearchRepositoryResponse>>{
-        return api.fetchRepository("android", 1)
+    fun fetchRepository(query: String): Single<Response<SearchRepositoryResponse>>{
+        return api.fetchRepository(query, 1)
     }
 }

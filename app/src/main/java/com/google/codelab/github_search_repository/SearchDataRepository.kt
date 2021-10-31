@@ -4,5 +4,5 @@ import com.google.codelab.github_search_repository.model.SearchRepositoryBusines
 import io.reactivex.rxjava3.core.Single
 
 interface SearchDataRepository {
-    fun fetchRepository(): Single<List<SearchRepositoryBusinessModel>>
+    fun fetchRepository(query: String): Single<List<SearchRepositoryBusinessModel>>
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -44,6 +45,18 @@ class SearchResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+            override fun onQueryTextSubmit(query: String): Boolean {
+                viewModel.fetchRepository(query)
+                return false
+            }
+        })
+
+        binding.searchView.isSubmitButtonEnabled = true
+
         binding.recyclerView.apply {
             adapter = groupAdapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -60,8 +73,6 @@ class SearchResultFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy { groupAdapter.update(it.map { RepositoryItemsFactory(it) }) }
             .addTo(disposable)
-
-        viewModel.fetchRepository()
     }
 
     override fun onDestroy() {
