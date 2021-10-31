@@ -82,7 +82,7 @@ class SearchResultFragment : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy {
-                Snackbar.make(view, it.message, Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(view, it.message, Snackbar.LENGTH_LONG)
                     .setAction(R.string.retry) {
                         viewModel.keyword.get()?.let {viewModel.fetchRepository(it) }
                     }.show()

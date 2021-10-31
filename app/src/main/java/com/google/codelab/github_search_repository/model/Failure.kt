@@ -4,3 +4,5 @@ data class Failure(
     val error: Throwable,
     val message: Int
 )
+
+class QueryException: Throwable(){}

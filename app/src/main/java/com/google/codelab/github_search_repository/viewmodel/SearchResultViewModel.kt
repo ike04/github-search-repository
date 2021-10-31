@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.google.codelab.github_search_repository.R
 import com.google.codelab.github_search_repository.repository.SearchDataRepository
 import com.google.codelab.github_search_repository.model.Failure
+import com.google.codelab.github_search_repository.model.QueryException
 import com.google.codelab.github_search_repository.model.SearchRepositoryBusinessModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -31,11 +32,16 @@ class SearchResultViewModel @Inject constructor(
                 onError = { error.onNext(Failure(it, it.toMessage())) }
             )
             .addTo(disposable)
+
+        repository.getStreamQueryError()
+            .subscribeBy { error.onNext(Failure(it, it.toMessage())) }
+            .addTo(disposable)
     }
 
     private fun Throwable.toMessage(): Int {
         return when (this) {
             is HttpException -> toMessage()
+            is QueryException -> R.string.error_invalid_query
             is UnknownHostException -> R.string.error_offline
             else -> R.string.error_unexpected
         }
