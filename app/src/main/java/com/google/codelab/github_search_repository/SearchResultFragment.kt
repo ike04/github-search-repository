@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.codelab.github_search_repository.databinding.FragmentSearchResultBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchResultFragment : Fragment() {
     private lateinit var binding: FragmentSearchResultBinding
 
