@@ -4,5 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 @HiltViewModel
-class SearchResultViewModel constructor(): ViewModel() {
+class SearchResultViewModel constructor(
+    private val repository: SearchDataRepository
+) : ViewModel() {
 }
