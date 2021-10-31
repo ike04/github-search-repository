@@ -27,4 +27,10 @@ class SearchResultFragment : Fragment() {
         binding = FragmentSearchResultBinding.inflate(layoutInflater)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.fetchRepository()
+    }
 }
