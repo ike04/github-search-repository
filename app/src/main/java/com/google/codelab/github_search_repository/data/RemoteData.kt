@@ -1,4 +1,4 @@
-package com.google.codelab.github_search_repository
+package com.google.codelab.github_search_repository.data
 
 import com.google.codelab.github_search_repository.data.ApiRequest
 import com.google.codelab.github_search_repository.model.SearchRepositoryResponse

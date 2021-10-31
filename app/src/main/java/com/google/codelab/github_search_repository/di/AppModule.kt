@@ -1,7 +1,7 @@
 package com.google.codelab.github_search_repository.di
 
-import com.google.codelab.github_search_repository.SearchDataRepository
-import com.google.codelab.github_search_repository.SearchDataRepositoryImpl
+import com.google.codelab.github_search_repository.repository.SearchDataRepository
+import com.google.codelab.github_search_repository.repository.SearchDataRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

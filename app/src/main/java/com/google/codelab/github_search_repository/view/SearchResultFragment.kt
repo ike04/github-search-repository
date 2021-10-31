@@ -1,4 +1,4 @@
-package com.google.codelab.github_search_repository
+package com.google.codelab.github_search_repository.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.google.codelab.github_search_repository.R
+import com.google.codelab.github_search_repository.viewmodel.SearchResultViewModel
 import com.google.codelab.github_search_repository.databinding.FragmentSearchResultBinding
-import com.google.codelab.github_search_repository.view.RepositoryItemsFactory
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import dagger.hilt.android.AndroidEntryPoint

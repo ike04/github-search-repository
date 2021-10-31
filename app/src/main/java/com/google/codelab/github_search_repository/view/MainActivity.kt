@@ -1,7 +1,8 @@
-package com.google.codelab.github_search_repository
+package com.google.codelab.github_search_repository.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.codelab.github_search_repository.R
 import com.google.codelab.github_search_repository.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
